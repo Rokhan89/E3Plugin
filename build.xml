@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="Jgility-Eclipse4" default="substitution" basedir=".">
+	<description>Agil software development e4-plugin for Eclipse 4.x</description>
+
+
+	<target name="substitution">
+		<property name="guard" value="= License =" />
+		<loadfile property="origlicensetext" srcFile="header.txt" />
+		<loadfile property="authortext" srcFile="author.txt" />
+		<echo file="tmp/license.txt"
+		      message="${line.separator}${origlicensetext}${line.separator} *     ${authortext}${line.separator} *" />
+		<loadfile property="licensetext" srcFile="tmp/license.txt" />
+		<replaceregexp match="${guard}(.*${guard})?" replace="${licensetext}" flags="ims">
+			<fileset dir="src" includes="**/*" />
+		</replaceregexp>
+		<delete dir="tmp" />
+	</target>
+
+</project>
