@@ -3,5 +3,30 @@
 <plugin>
    <extension
          point="org.eclipse.ui.newWizards">
+      <category
+            id="com.github.jgility.e4.category.wizards.jgility"
+            name="Jgility">
+      </category>
+      <wizard
+            category="com.github.jgility.e4.category.wizards.jgility"
+            class="com.github.jgility.e4.wizards.JgilityProjectWizard"
+            id="com.github.jgility.e4.wizard.new.jgilityProject"
+            name="Jgility Project">
+      </wizard>
+      <wizard
+            category="com.github.jgility.e4.category.wizards.jgility"
+            class="com.github.jgility.e4.wizards.ProductWizard"
+            id="com.github.jgility.e4.wizard.new.product"
+            name="Product">
+      </wizard>
+   </extension>
+   <extension
+         id="id1"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="com.github.jgility.e4.natures.JgilityNature">
+         </run>
+      </runtime>
    </extension>
 </plugin>
